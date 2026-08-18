@@ -1,356 +1,828 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Triangle Gift Shop</title>
+<title>Triangle Gift Shop | Toys, Gifts & Games</title>
+
+<meta name="description"
+content="Triangle Gift Shop - Toys, Gifts, Games and Party Items for every occasion. Contact us on WhatsApp for latest prices.">
 
 <style>
+
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#f7f7f7;
-  color:#222;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f7f9;
+  color:#171717;
+  line-height:1.6;
 }
 
+/* NAVBAR */
+
 header{
-  background:#111;
-  color:white;
-  padding:18px 6%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e8e8e8;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
+  padding:18px 7%;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:bold;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-0.5px;
+}
+
+.logo span{
+  color:#ff4d6d;
+}
+
+nav{
+  display:flex;
+  gap:28px;
 }
 
 nav a{
-  color:white;
   text-decoration:none;
-  margin-left:20px;
+  color:#222;
+  font-weight:600;
   font-size:15px;
+  transition:0.3s;
 }
 
+nav a:hover{
+  color:#ff4d6d;
+}
+
+/* HERO */
+
 .hero{
-  padding:70px 6%;
+  min-height:650px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  background:linear-gradient(135deg,#ff7a18,#ffb347);
-  color:white;
+  padding:70px 6%;
+  background:
+    radial-gradient(circle at 20% 20%,#ffe4ea 0,transparent 28%),
+    radial-gradient(circle at 80% 30%,#e8e4ff 0,transparent 30%),
+    linear-gradient(135deg,#ffffff,#f4f3ff);
+  overflow:hidden;
+}
+
+.hero-badge{
+  display:inline-block;
+  background:#fff;
+  border:1px solid #e7e7e7;
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:22px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.06);
 }
 
 .hero h1{
-  font-size:42px;
-  margin-bottom:12px;
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#ff4d6d;
 }
 
 .hero p{
-  font-size:18px;
-  margin-bottom:25px;
+  max-width:650px;
+  font-size:19px;
+  color:#666;
+  margin-bottom:32px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.whatsapp,
+.shop-btn{
+  display:inline-block;
+  padding:14px 23px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.3s;
 }
 
 .whatsapp{
-  display:inline-block;
   background:#25D366;
   color:white;
-  padding:14px 24px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
+  box-shadow:0 10px 25px rgba(37,211,102,0.25);
 }
 
+.whatsapp:hover{
+  transform:translateY(-3px);
+}
+
+.shop-btn{
+  background:#171717;
+  color:white;
+}
+
+.shop-btn:hover{
+  transform:translateY(-3px);
+  background:#333;
+}
+
+/* SECTION */
+
 section{
-  padding:45px 6%;
+  padding:85px 7%;
 }
 
 .section-title{
   text-align:center;
-  font-size:28px;
-  margin-bottom:25px;
+  font-size:36px;
+  letter-spacing:-1px;
+  margin-bottom:45px;
 }
+
+.section-subtitle{
+  text-align:center;
+  color:#777;
+  margin-top:-30px;
+  margin-bottom:45px;
+}
+
+/* CATEGORIES */
 
 .categories{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  max-width:800px;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  max-width:1100px;
   margin:auto;
 }
 
 .category{
   background:white;
-  padding:25px;
-  border-radius:15px;
+  padding:30px 20px;
+  border-radius:20px;
   text-align:center;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
   font-size:18px;
-  font-weight:bold;
+  font-weight:700;
+  border:1px solid #ececec;
+  transition:0.35s;
 }
+
+.category:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 45px rgba(0,0,0,0.08);
+}
+
+/* PRODUCTS */
 
 .products{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  max-width:1200px;
+  margin:auto;
 }
 
 .card{
   background:white;
-  border-radius:15px;
+  border:1px solid #e9e9e9;
+  border-radius:22px;
+  padding:18px;
   overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-  text-align:center;
-  padding-bottom:18px;
+  transition:0.35s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 45px rgba(0,0,0,0.09);
 }
 
 .product-image{
-  height:180px;
-  background:#eee;
+  height:210px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff0f3,#f0efff);
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:55px;
+  align-items:center;
+  font-size:80px;
+  margin-bottom:20px;
 }
 
 .card h3{
-  margin:15px 10px 8px;
+  font-size:21px;
+  margin-bottom:7px;
 }
 
 .card p{
-  color:#666;
-  margin-bottom:12px;
+  color:#777;
+  font-size:14px;
+  min-height:45px;
+  margin-bottom:18px;
 }
 
 .price-btn{
-  display:inline-block;
-  background:#25D366;
+  display:block;
+  text-align:center;
+  background:#171717;
   color:white;
-  padding:10px 16px;
-  border-radius:25px;
+  padding:12px;
+  border-radius:10px;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:700;
+  transition:0.3s;
 }
+
+.price-btn:hover{
+  background:#ff4d6d;
+}
+
+/* ABOUT */
 
 .about{
-  background:white;
-  text-align:center;
-}
-
-.about p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.7;
-  color:#555;
-}
-
-.contact{
-  text-align:center;
-}
-
-.contact p{
-  margin:10px 0;
-}
-
-footer{
   background:#111;
   color:white;
   text-align:center;
-  padding:25px;
-  margin-top:20px;
+}
+
+.about .section-title{
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:750px;
+  margin:auto;
+  color:#cfcfcf;
+  font-size:17px;
+}
+
+/* WHY US */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.feature{
+  background:white;
+  border:1px solid #eaeaea;
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+}
+
+.feature-icon{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.feature h3{
+  margin-bottom:8px;
+}
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+  background:#f0efff;
+}
+
+.contact-box{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.07);
+}
+
+.contact-box p{
+  margin:10px 0;
+  color:#555;
+}
+
+.contact-buttons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.call-btn,
+.map-btn{
+  padding:13px 20px;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.call-btn{
+  background:#111;
+}
+
+.map-btn{
+  background:#4285F4;
+}
+
+/* FOOTER */
+
+footer{
+  background:#0b0b0b;
+  color:#aaa;
+  text-align:center;
+  padding:35px 20px;
+}
+
+footer .footer-logo{
+  color:white;
+  font-size:21px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+footer p{
+  font-size:13px;
+}
+
+/* WHATSAPP FLOATING BUTTON */
+
+.floating-whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:27px;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+  z-index:999;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    box-shadow:0 0 0 0 rgba(37,211,102,0.5);
+  }
+  70%{
+    box-shadow:0 0 0 14px rgba(37,211,102,0);
+  }
+  100%{
+    box-shadow:0 0 0 0 rgba(37,211,102,0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
 }
 
 @media(max-width:600px){
+
   header{
-    padding:15px 4%;
+    padding:15px 5%;
   }
 
   .logo{
-    font-size:20px;
+    font-size:18px;
+  }
+
+  nav{
+    gap:13px;
   }
 
   nav a{
-    margin-left:8px;
-    font-size:13px;
+    font-size:12px;
   }
 
   .hero{
-    padding:55px 5%;
+    min-height:590px;
+    padding:60px 5%;
   }
 
   .hero h1{
-    font-size:32px;
+    font-size:46px;
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:65px 5%;
+  }
+
+  .section-title{
+    font-size:30px;
+  }
+
+  .categories{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .category{
+    padding:22px 10px;
+    font-size:15px;
   }
 
   .products{
     grid-template-columns:1fr;
   }
 
-  .categories{
-    grid-template-columns:1fr;
+  .product-image{
+    height:220px;
   }
+
+  .contact-box{
+    padding:25px 18px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <header>
-  <div class="logo">△ Triangle Gift Shop</div>
+
+  <div class="logo">
+    △ <span>Triangle</span> Gift Shop
+  </div>
 
   <nav>
     <a href="#home">Home</a>
     <a href="#products">Products</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <h1>Triangle Gift Shop</h1>
+
+  <div class="hero-badge">
+    🎁 Gifts • Toys • Games • Party Items
+  </div>
+
+  <h1>
+    Make Every Moment<br>
+    <span>Special.</span>
+  </h1>
 
   <p>
-    Toys, Gifts & Special Items for Every Occasion
+    Discover exciting toys, unique gifts, games and special
+    items for birthdays, celebrations and every occasion.
   </p>
 
-  <a class="whatsapp"
-     href="https://wa.me/916395567733"
-     target="_blank">
-     💬 WhatsApp for Price
-  </a>
+  <div class="hero-buttons">
+
+    <a class="whatsapp"
+       href="https://wa.me/916395567733"
+       target="_blank">
+       💬 WhatsApp for Price
+    </a>
+
+    <a class="shop-btn" href="#products">
+       🛍️ Explore Products
+    </a>
+
+  </div>
+
 </section>
 
+
+<!-- CATEGORIES -->
+
 <section>
-  <h2 class="section-title">Our Categories</h2>
+
+  <h2 class="section-title">
+    Shop By Category
+  </h2>
+
+  <p class="section-subtitle">
+    Something special for everyone
+  </p>
 
   <div class="categories">
 
-    <div class="category">🧸 Toys</div>
+    <div class="category">🧸<br>Toys</div>
 
-    <div class="category">🎁 Gifts</div>
+    <div class="category">🎁<br>Gifts</div>
 
-    <div class="category">🎮 Games</div>
+    <div class="category">🎮<br>Games</div>
 
-    <div class="category">🎉 Party Items</div>
+    <div class="category">🎉<br>Party Items</div>
 
   </div>
+
 </section>
+
+
+<!-- PRODUCTS -->
 
 <section id="products">
 
-  <h2 class="section-title">Featured Products</h2>
+  <h2 class="section-title">
+    Featured Products
+  </h2>
+
+  <p class="section-subtitle">
+    Ask us on WhatsApp for latest prices and availability
+  </p>
 
   <div class="products">
 
+
     <div class="card">
-      <div class="product-image">🧸</div>
+
+      <div class="product-image">
+        🧸
+      </div>
+
       <h3>Soft Toys</h3>
-      <p>Different sizes & designs available</p>
+
+      <p>
+        Different sizes and attractive designs available.
+      </p>
 
       <a class="price-btn"
          href="https://wa.me/916395567733?text=Hello%20Triangle%20Gift%20Shop%2C%20mujhe%20Soft%20Toys%20ka%20price%20puchna%20hai."
          target="_blank">
-         WhatsApp for Price
+         💬 Ask Price
       </a>
+
     </div>
 
+
     <div class="card">
-      <div class="product-image">🎁</div>
+
+      <div class="product-image">
+        🎁
+      </div>
+
       <h3>Gift Items</h3>
-      <p>Perfect gifts for special occasions</p>
+
+      <p>
+        Perfect gift options for birthdays and special occasions.
+      </p>
 
       <a class="price-btn"
          href="https://wa.me/916395567733?text=Hello%20Triangle%20Gift%20Shop%2C%20mujhe%20Gift%20Items%20ka%20price%20puchna%20hai."
          target="_blank">
-         WhatsApp for Price
+         💬 Ask Price
       </a>
+
     </div>
 
+
     <div class="card">
-      <div class="product-image">🎮</div>
+
+      <div class="product-image">
+        🎮
+      </div>
+
       <h3>Board Games</h3>
-      <p>Fun games for kids & family</p>
+
+      <p>
+        Fun games for kids, friends and the whole family.
+      </p>
 
       <a class="price-btn"
          href="https://wa.me/916395567733?text=Hello%20Triangle%20Gift%20Shop%2C%20mujhe%20Board%20Games%20ka%20price%20puchna%20hai."
          target="_blank">
-         WhatsApp for Price
+         💬 Ask Price
       </a>
+
     </div>
 
+
     <div class="card">
-      <div class="product-image">🎉</div>
+
+      <div class="product-image">
+        🎉
+      </div>
+
       <h3>Party Items</h3>
-      <p>Items for birthdays & celebrations</p>
+
+      <p>
+        Birthday and celebration items for every special moment.
+      </p>
 
       <a class="price-btn"
          href="https://wa.me/916395567733?text=Hello%20Triangle%20Gift%20Shop%2C%20mujhe%20Party%20Items%20ka%20price%20puchna%20hai."
          target="_blank">
-         WhatsApp for Price
+         💬 Ask Price
       </a>
+
     </div>
 
   </div>
+
 </section>
 
-<section class="about">
 
-  <h2 class="section-title">About Triangle Gift Shop</h2>
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <h2 class="section-title">
+    About Triangle Gift Shop
+  </h2>
 
   <p>
-    Triangle Gift Shop par aapko toys, gifts, games aur
-    special occasion ke liye useful items milenge.
-    Latest products aur prices ke liye WhatsApp par directly
-    humse contact karein.
+    Triangle Gift Shop is your local destination for toys,
+    gifts, games and celebration items. We continuously bring
+    new and interesting products so you can find something
+    special for every occasion.
   </p>
 
 </section>
 
+
+<!-- WHY CHOOSE US -->
+
+<section>
+
+  <h2 class="section-title">
+    Why Choose Us?
+  </h2>
+
+  <div class="features">
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        🛍️
+      </div>
+
+      <h3>Wide Variety</h3>
+
+      <p>
+        Toys, gifts, games and party items under one roof.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        ✨
+      </div>
+
+      <h3>Latest Items</h3>
+
+      <p>
+        New and exciting products added regularly.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        💬
+      </div>
+
+      <h3>Easy Enquiry</h3>
+
+      <p>
+        Simply WhatsApp us to know price and availability.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
 <section class="contact" id="contact">
 
-  <h2 class="section-title">Contact Us</h2>
+  <h2 class="section-title">
+    Contact & Location
+  </h2>
 
-  <p>📱 WhatsApp: Contact us for latest price</p>
+  <div class="contact-box">
 
-  <p>📍 Visit our shop for more products</p>
+    <p>
+      📱 <strong>WhatsApp:</strong> 6395567733
+    </p>
 
-  <br>
+    <p>
+      📍 Visit our shop and explore more products.
+    </p>
 
-  <a class="whatsapp"
-     href="https://wa.me/916395567733"
-     target="_blank">
-     💬 Chat on WhatsApp
-  </a>
+    <div class="contact-buttons">
+
+      <a class="whatsapp"
+         href="https://wa.me/916395567733"
+         target="_blank">
+         💬 WhatsApp
+      </a>
+
+      <a class="call-btn"
+         href="tel:+916395567733">
+         📞 Call Us
+      </a>
+
+      <a class="map-btn"
+         href="https://maps.app.goo.gl/XbgL6sV9KduEBGKt5"
+         target="_blank">
+         📍 View Location
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
+
+
+<!-- FOOTER -->
 
 <footer>
-  <p>© 2026 Triangle Gift Shop</p>
-  <p>All Rights Reserved</p>
+
+  <div class="footer-logo">
+    △ Triangle Gift Shop
+  </div>
+
+  <p>
+    Toys • Gifts • Games • Party Items
+  </p>
+
+  <p style="margin-top:10px;">
+    © 2026 Triangle Gift Shop. All Rights Reserved.
+  </p>
+
 </footer>
-<section style="text-align:center;padding:30px 6%;">
-  <h2>Contact & Location</h2>
-  <p>📱 WhatsApp:916395567733</p>
 
-  <a href="tel:6395567733"
-     style="display:inline-block;background:#25D366;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;margin:5px;">
-     📞 Contact Us
-  </a>
 
-  <a href="https://maps.app.goo.gl/XbgL6sV9KduEBGKt5"
-     target="_blank"
-     style="display:inline-block;background:#4285F4;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;margin:5px;">
-     📍 View Location
-  </a>
-</section>
+<!-- FLOATING WHATSAPP -->
+
+<a class="floating-whatsapp"
+   href="https://wa.me/916395567733"
+   target="_blank"
+   aria-label="WhatsApp">
+   💬
+</a>
+
 </body>
-</html>
+  </html>
